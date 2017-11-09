@@ -32,7 +32,7 @@ def hello_world():
 @IN_PROGRESS.track_inprogress()
 def slow_request():
     REQUESTS.labels(method='GET', endpoint="/slow").inc()
-    v = random.random()
+    v = random.expovariate(1.0 / 1.3)
     time.sleep(v)
     return render_template_string('<h1>Wow, that took {{v}} s!</h1>', v=v)
 
