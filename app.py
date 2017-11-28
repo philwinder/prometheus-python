@@ -7,10 +7,10 @@ from prometheus_client import generate_latest, REGISTRY, Counter, Gauge, Histogr
 app = Flask(__name__)
 
 # A counter to count the total number of HTTP requests
-REQUESTS = Counter('http_request_total', 'Total HTTP Requests (count)', ['method', 'endpoint', 'status_code'])
+REQUESTS = Counter('http_requests_total', 'Total HTTP Requests (count)', ['method', 'endpoint', 'status_code'])
 
 # A gauge (i.e. goes up and down) to monitor the total number of in progress requests
-IN_PROGRESS = Gauge('http_request_inprogress', 'Number of in progress HTTP requests')
+IN_PROGRESS = Gauge('http_requests_inprogress', 'Number of in progress HTTP requests')
 
 # A histogram to measure the latency of the HTTP requests
 TIMINGS = Histogram('http_request_duration_seconds', 'HTTP request latency (seconds)')
